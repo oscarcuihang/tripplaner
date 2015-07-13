@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @tripplan.image.url(:medium) %>
+
+
+<p>
+  <strong>Tripname:</strong>
+  <%= @tripplan.tripname %>
+</p>
+
+<%= link_to 'Back', tripplans_path %>

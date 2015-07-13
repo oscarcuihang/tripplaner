@@ -1,0 +1,24 @@
+<%= form_for @tripplan, html: { multipart: true} do |f| %>
+  <% if @tripplan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tripplan.errors.count, "error") %> prohibited this tripplan from being saved:</h2>
+
+      <ul>
+      <% @tripplan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-group">
+    <%= f.label :tripname %><br>
+    <%= f.text_field :tripname %>
+
+    <%= f.label :image %><br>
+    <%= f.file_field :image, html: { class: 'form-control' } %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary"%>
+  </div>
+<% end %>

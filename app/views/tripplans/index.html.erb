@@ -8,25 +8,43 @@
 
 <div class= "tripplan-form" sytle=""></div> <br>
 
-<%= button_to 'New Tripplan', new_tripplan_path, remote: true, class:".tripplan-form btn btn-primary", method: "get"%>
+<%= button_to '+ Add Trip Plan', new_tripplan_path, remote: true, class:".tripplan-form btn btn-primary", method: "get"%>
 
 </br>
 
 <div class="row">
 
 	<% @tripplans.order('created_at DESC').each do |tripplan| %>
-		<div class="col-md-4 three-column">
-		<div>
+	<div class="col-md-4 three-column">
+		<div class="thumbnail text-center">
 		<%= link_to (image_tag tripplan.image.url(:medium), class: 'image' ), tripplan %>
-		</div> </br>
+			<div class="caption">
+				<p class="namecolor">
+  					<%=  tripplan.tripname %>
+				</p>
+			</div>
 		</div>
-
+	</div>
 	<% end %>
 </div>
 
+<style type="text/css">
+.thumbnail {
+    position: relative;
 
+}
 
+.namecolor{
+	font-size: 18px;
+	color: white;
 
-
-
-
+}
+.caption {
+	background: none repeat scroll 0 0 #000000;
+    opacity: 0.6;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+}
+</style>
